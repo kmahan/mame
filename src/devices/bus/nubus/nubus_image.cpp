@@ -259,7 +259,7 @@ void nubus_image_device::file_cmd_w(uint32_t data)
 			strcpy((char*)filectx.curdir, (char*)filectx.filename);
 		} else {
 			strcat((char*)filectx.curdir, "/");
-			strcat((char*)filectx.curdir, (char*)filectx.filename);
+			strncat((char*)filectx.curdir, (char*)filectx.filename, sizeof(filectx.curdir));
 		}
 		break;
 	case kFileCmdGetFirstListing:
